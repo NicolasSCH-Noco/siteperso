@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->default("Première article");
+            $table->text('body')->default("Première article qui ma parole, n'a aucun sens .. Mais on fait avec");
+            $table->foreignId("user_id")->constrained()->onDelete("cascade");
             $table->timestamps();
         });
     }
