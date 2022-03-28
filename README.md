@@ -1,8 +1,8 @@
 <p align="center"><a href="nicolas.nsi-tech.fr" target="_blank"><img src="https://cdn.discordapp.com/attachments/864926984659140659/958099405330845736/logo.png" width="400"></a></p>
 
 <p align="center">
-<a href="https://github.com/Bibadel"><img src="https://logo-marque.com/wp-content/uploads/2020/12/GitHub-Embleme.png" alt="Github" style="width= 15px;height=15px;"></a>
-<a href="https://discord.gg/nsi-tech"><img src="https://www.pngkit.com/png/full/32-323627_icne-logo-discord-tlchargement-gratuit-en-png-et.png" alt="Discord Server" style="width=15px;height=15px"></a>
+<a href="https://github.com/Bibadel"><img src="https://logo-marque.com/wp-content/uploads/2020/12/GitHub-Embleme.png" alt="Github" width="15" height="15"></a>
+<a href="https://discord.gg/nsi-tech"><img src="https://www.pngkit.com/png/full/32-323627_icne-logo-discord-tlchargement-gratuit-en-png-et.png" alt="Discord Server"  width="15" height="15"></a>
 <!-- <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a> -->
 </p>
