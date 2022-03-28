@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fichiers', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string("nom")->default("fichier.fch");
-            $table->string("emp")->default("/storage/fichier/fichier.fch");
-            $table->string("taille")->default("145Mo");
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fichiers');
+        Schema::dropIfExists('articles');
     }
 };
