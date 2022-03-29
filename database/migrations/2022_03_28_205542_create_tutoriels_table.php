@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('tutoriels', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->text('content');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

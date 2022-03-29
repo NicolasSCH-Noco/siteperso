@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->id();
-            $table->string('label');
-            $table->string('color');
-            $table->string('icon');
-            $table->timestamps();
+        Schema::create('taggables', function (Blueprint $table) {
+            $table->integer("tag_id");
+
+            $table->integer("taggable_id");
+        
+            $table->string("taggable_type");
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('taggables');
     }
 };
