@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("nom")->default("fichier.fch");
             $table->string("emp")->default("/storage/fichier/fichier.fch");
             $table->string("taille")->default("145Mo");
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

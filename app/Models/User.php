@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tutoriel::class);
     }
+
+    public function fichiers()
+    {
+        return $this->hasMany(Fichier::class);
+    }
 }
