@@ -5,7 +5,7 @@
         </svg>
 
         <img class="h-14 w-auto" src="https://cdn.discordapp.com/attachments/864926984659140659/958099384002830356/Fox.png" alt="Small Logo">
-             <span class="font-semibold text-xl tracking-tight">{{ config('app.name')}}</span>
+        <a href=" {{ route('accueil')}} "><span class="font-semibold text-xl tracking-tight">{{ config('app.name')}}</span></a>
   </div>
   <div class="block lg:hidden">
     <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
@@ -17,13 +17,13 @@
     <div class="text-sm lg:flex-grow">
      
       <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-      Books
+        Articles
       </a>
       <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-        Blog
+        Tutoriels
       </a>
       <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white ml-4">
-        About us
+        Tags
       </a>
     </div>
     <div>
