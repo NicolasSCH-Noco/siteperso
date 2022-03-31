@@ -1,56 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>{{ config('app.name') }} | Accueil</title>
-</head>
-<body>
-     <!-- header -->
-     <header class="header my-8 ">
-        <!-- container -->
-        <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto ">
-            <!-- header wrapper -->
-                <div class="header-wrapper flex items-center justify-between ">
+@extends('components.app')
 
-                    <!-- header logo -->
-                    <div class="header-logo">
-                        <h1 class="font-semibold text-black leading-relaxed"><a href=""><img class="h-16 w-auto" src="https://cdn.discordapp.com/attachments/864926984659140659/958099384002830356/Fox.png" alt="FoxLogo"></a></h1>
-                    </div>
+@section('title')
+    Accueil
+@endsection
 
-                    <!-- mobile toggle -->
-                    <div class="toggle md:hidden">
-                        <button @click=" isOpen = true" @keydown.escape=" isOpen = false">
-                            <svg 
-                                class="h-6 w-6 fill-current text-black"
-                                fill="none" stroke-linecap="round" 
-                                stroke-linejoin="round" stroke-width="2" 
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Navbar -->
-                    <navbar class="navbar hidden md:block ">
-                        <ul class="flex space-x-8 text-sm font-semibold">
-                            <li><a href="#" class="active border-b-2 border-orange-500 pb-2">Accueil</a></li>
-                            <li><a href="#" class="hover:text-orange-500">Articles</a></li>
-                            <li><a href="#" class="hover:text-orange-500">Tutoriels</a></li>
-                            <li><a href="#" class="hover:text-orange-500">Fiche de contact</a></li>
-                            <li><a href="#" class="hover:text-orange-500">CV/Compétences</a></li>
-                            <li><a href="#" class="cta bg-orange-500 hover:bg-orange-600 px-3 py-2 rounded text-white font-normal">Accès administrateur</a></li>
-                        </ul>
-                    </navbar>
-
-                </div>
-        </div>
-
-    </header><!-- end header -->
-
-    <!-- hero -->
+@section('content')
     <div class="hero bg-gray-200 py-16">
         <!-- container -->
         <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
@@ -58,8 +12,8 @@
             <div class="hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
                 <!-- hero text -->
-                <div class="hero-text col-span-6">
-                    <h1 class=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">Un pas dans le monde du développement informatique !</h1>
+                <div class="hero-text col-span-6 ">
+                    <h1 class="text-center font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">Un pas dans le monde du développement informatique !</h1>
                     <hr class=" w-12 h-1 bg-orange-500 rounded-full mt-8">
                     <p class="text-gray-800 text-base leading-relaxed mt-8 font-semibold">Un voyage simple et efficace dans le monde de la programmation informatique.</p>
                     {{-- <div class="get-app flex space-x-5 mt-10 justify-center md:justify-start">
@@ -88,7 +42,7 @@
                     </p>
                 </div>
                 
-                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-2">  
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-2 text-center">  
                     <div>
                         <img class="object-cover rounded-xl h-64 w-full" src="https://cdn.discordapp.com/attachments/864926984659140659/959177702311592036/1636445769627.jpg" alt="">
                         
@@ -100,9 +54,4 @@
             </div>
         </div>
     </section>
-
-   
- 
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
-</body>
-</html>
+@endsection
