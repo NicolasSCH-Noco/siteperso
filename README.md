@@ -24,5 +24,12 @@ Toutes les fonctionnalités seront ci-dessous :
     - Gestion des fichiers avec création de liens de dl.
 
 
+### Patch Note
+
+Mise à jour 03/04/2022
+ - Mise à jour système connexion / Inscription
+ - Installation TailWind Css
+-  Préparation des models et relations
+
 ## Développeur 
 - [Nicolas SCHARRE (Bibadel)] (https://github.com/Bibadel).
