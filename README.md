@@ -27,9 +27,14 @@ Toutes les fonctionnalités seront ci-dessous :
 ### Patch Note
 
 Mise à jour 03/04/2022
- - Mise à jour système connexion / Inscription
- - Installation TailWind Css
+- Mise à jour système connexion / Inscription
+- Installation TailWind Css
 -  Préparation des models et relations
+
+Mise à jour 05/04/2022
+- Mise à jour des controlleurs.
+- Création des vues.
+- Mise à jour des autorisations.
 
 ## Développeur 
 - [Nicolas SCHARRE (Bibadel)] (https://github.com/Bibadel).
