@@ -15,7 +15,8 @@ class TutorielController extends Controller
      */
     public function index()
     {
-        //
+        $tutoriels = Tutoriel::all();
+        return view('tutoriel.index', compact('tutoriels'));
     }
 
     /**
@@ -25,7 +26,7 @@ class TutorielController extends Controller
      */
     public function create()
     {
-        //
+        return view('tutoriel.create');
     }
 
     /**
@@ -36,7 +37,20 @@ class TutorielController extends Controller
      */
     public function store(StoreTutorielRequest $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:125',
+            'description' => 'required|string|max:255',
+            'content' => 'required|string|max:400',
+        ]);
+
+        $tutoriel = new Tutoriel([
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $request->content,
+        ]);
+
+        $tutoriel->save();
+        return redirect('/tutoriels')->with('success', 'Tutoriel has been added');
     }
 
     /**
@@ -47,7 +61,7 @@ class TutorielController extends Controller
      */
     public function show(Tutoriel $tutoriel)
     {
-        //
+        return view('tutoriel.show', compact('tutoriel'));
     }
 
     /**
