@@ -15,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::class;
+        return view('article.index');
     }
 
     /**
@@ -25,7 +26,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('article.create');
     }
 
     /**
@@ -36,7 +37,18 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string|max:400',
+        ]);
+
+        $article = new Article([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+
+        $article->save();
+        return redirect('/articles')->with('success', 'Article has been added');
     }
 
     /**
