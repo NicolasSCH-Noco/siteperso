@@ -8,8 +8,8 @@
     <title>{{ config('app.name') }} | @yield('title')</title>
 </head>
 <body>
-    @include('components.nav')
+    @include('app.nav')
     @yield('content')
-    @include('components.footer')
+    @include('app.footer')
 </body>
 </html>
