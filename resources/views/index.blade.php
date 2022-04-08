@@ -1,4 +1,4 @@
-@extends('components.app')
+@extends('app.app')
 
 @section('title')
     Accueil
