@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('taggables', function (Blueprint $table) {
-            $table->integer("tag_id");
-
-            $table->integer("taggable_id");
-        
-            $table->string("taggable_type");
+        Schema::create('tag_tutoriel', function (Blueprint $table) {
+            $table->foreignId("tag_id")->constrained()->onDelete('cascade');
+            $table->foreignId("tutoriel_id")->constrained()->onDelete('cascade');
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taggables');
+        Schema::dropIfExists('pivot_table_tag_tutoriel');
     }
 };

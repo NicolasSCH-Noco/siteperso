@@ -11,11 +11,11 @@ class Tag extends Model
 
     public function articles()
     {
-        return $this->morphedByMany(Article::class, "taggable");
+        return $this->belongsToMany(Article::class);
     }
 
     public function tutoriels()
     {
-        return $this->morphedByMany(Tutoriel::class, "taggable");
+        return $this->belongsToMany(Tutoriel::class);
     }
 }
