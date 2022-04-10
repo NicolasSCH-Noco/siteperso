@@ -19,11 +19,19 @@
                             <a href="{{ route('tutoriels.show', $tutoriel) }}" class="block font-medium text-purple-600">Voir le tutoriel</a>
                         </div>
                         <span><small>{{ $tutoriel->created_at->diffForHumans() }}</small></span>
-                        @foreach ($tutoriel->tags as $tag)
-                        <span><small>{{ $tag->label }}</small></span>
-                        @endforeach
                         
                         <img src="https://tailus.io/sources/blocks/end-image/preview/images/graphic.svg" class="w-2/3 ml-auto -mb-12" alt="illustration" loading="lazy" width="900" height="600">
+                   {{-- Tags --}}
+                   <div class="flex flex-shrink-0">
+                    @foreach ($tutoriel->tags as $tag)
+                    {{-- <span><small>{{ $tag->label }}</small></span> --}}
+                    <div class="flex flex-shrink-0 text-sm items-center px-2">
+                        <div class="bg-gray-400 text-gray-600 px-2 py-1 rounded-l-md">Logo</div>
+                        <div class="bg-gray-500 text-green-100 px-2 py-1 rounded-r-md">{{ $tag->label }}</div>
+                    </div>
+                    @endforeach
+                    </div>
+                    {{-- Fin tags  --}}
                     </div>
                     
                 @empty
