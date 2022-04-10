@@ -18,8 +18,14 @@
                             <p class="mb-6">{{ $tutoriel->description }}</p>
                             <a href="{{ route('tutoriels.show', $tutoriel) }}" class="block font-medium text-purple-600">Voir le tutoriel</a>
                         </div>
+                        <span><small>{{ $tutoriel->created_at->diffForHumans() }}</small></span>
+                        @foreach ($tutoriel->tags as $tag)
+                        <span><small>{{ $tag->label }}</small></span>
+                        @endforeach
+                        
                         <img src="https://tailus.io/sources/blocks/end-image/preview/images/graphic.svg" class="w-2/3 ml-auto -mb-12" alt="illustration" loading="lazy" width="900" height="600">
                     </div>
+                    
                 @empty
                     <h1 class="text-center"><i>Aucun tutoriels</i></h1>
                 @endforelse
