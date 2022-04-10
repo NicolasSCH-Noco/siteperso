@@ -15,7 +15,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+        return view('tags.index', compact('tags'));
     }
 
     /**
@@ -25,7 +26,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tags.create');
     }
 
     /**
@@ -36,7 +37,9 @@ class TagController extends Controller
      */
     public function store(StoreTagRequest $request)
     {
-        //
+        $tag = Tag::create($request->validated());
+        $tag->save();
+        return redirect()->route('tags.index')->with('success', 'Nouveau tag implémenté avec succés');
     }
 
     /**
@@ -47,7 +50,7 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        return view('tag.show', compact('tag'));
     }
 
     /**
