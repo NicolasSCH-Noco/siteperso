@@ -7,7 +7,7 @@
 
               <!-- header logo -->
               <div class="header-logo">
-                  <h1 class="font-semibold text-black leading-relaxed"><a href=""><img class="h-16 w-auto" src="https://cdn.discordapp.com/attachments/864926984659140659/958099384002830356/Fox.png" alt="FoxLogo"></a></h1>
+                  <h1 class="font-semibold text-black leading-relaxed"><a href="{{ route('accueil')}}"><img class="h-16 w-auto" src="https://cdn.discordapp.com/attachments/864926984659140659/958099384002830356/Fox.png" alt="FoxLogo"></a></h1>
               </div>
 
               <!-- mobile toggle -->

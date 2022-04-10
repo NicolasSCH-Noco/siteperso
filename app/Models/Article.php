@@ -4,13 +4,14 @@ namespace App\Models;
 
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['title', 'body', 'user_id', 'tag_id'];
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -20,4 +21,10 @@ class Article extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
 }

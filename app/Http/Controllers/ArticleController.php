@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
+use App\Models\Image;
 use App\Models\Article;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
@@ -26,7 +28,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create');
+        $tags = Tag::all();
+        return view('article.create', compact('tags'));
     }
 
     /**
@@ -40,15 +43,37 @@ class ArticleController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'body' => 'required|string|max:400',
+            'tag_id' => 'required|integer',
+            'img' => 'required|mimes:jpeg,jpg,png,gif,svg|max:2048',
+            'img_description' => 'required|string|max:255',
         ]);
+        $tag = Tag::find($request->tag_id);
 
         $article = new Article([
             'title' => $request->title,
             'body' => $request->body,
+            'user_id' => auth()->user()->id,
         ]);
 
+        // Image gesture
+        $name = $request->file('img')->getClientOriginalName();
+ 
+        $path = $request->file('img')->store('public/images');
+ 
+        $img = new Image([
+            'path' => $path,
+            'name' => $name,
+            'description' => $request->img_description,
+        ]);
+
+        
+        
+        //  Save article
         $article->save();
-        return redirect('/articles')->with('success', 'Article has been added');
+        $article->images()->save($img);
+        $article->tags()->attach($tag);
+
+        return redirect('/articles')->with('success', 'Nouvelle article uploadé !');
     }
 
     /**

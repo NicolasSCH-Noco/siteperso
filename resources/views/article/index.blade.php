@@ -16,14 +16,14 @@
                         <div class="mb-12 space-y-4">
                             <h3 class="text-2xl font-semibold text-purple-900">{{ $article->title }}</h3>
                             <p class="mb-6">{{ $article->body }}</p>
-                            <a href="{{ route('articles.show', $article) }}" class="block font-medium text-purple-600">Voir
-                                l'article</a>
+                            <a href="{{ route('articles.show', $article) }}" class="block font-medium text-purple-600">Voir l'article</a>
+                            <span><small>{{ $article->created_at->diffForHumans() }}</small></span>
                         </div>
                         <img src="https://tailus.io/sources/blocks/end-image/preview/images/graphic.svg"
                             class="w-2/3 ml-auto -mb-12" alt="illustration" loading="lazy" width="900" height="600">
                         {{-- Tags --}}
                         <div class="flex flex-shrink-0">
-                            @foreach ($tutoriel->tags as $tag)
+                            @foreach ($article->tags as $tag)
                                 {{-- <span><small>{{ $tag->label }}</small></span> --}}
                                 <div class="flex flex-shrink-0 text-sm items-center px-2">
                                     <div class="bg-gray-400 text-gray-600 px-2 py-1 rounded-l-md">Logo</div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
+use App\Models\Image;
 use App\Models\Tutoriel;
 use App\Http\Requests\StoreTutorielRequest;
 use App\Http\Requests\UpdateTutorielRequest;
@@ -26,7 +28,8 @@ class TutorielController extends Controller
      */
     public function create()
     {
-        return view('tutoriel.create');
+        $tags = Tag::all();
+        return view('tutoriel.create', compact('tags'));
     }
 
     /**
@@ -41,6 +44,8 @@ class TutorielController extends Controller
             'title' => 'required|string|max:125',
             'description' => 'required|string|max:255',
             'content' => 'required|string|max:400',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img_description' => 'required|string|max:255',
         ]);
 
         $tutoriel = new Tutoriel([
@@ -49,8 +54,19 @@ class TutorielController extends Controller
             'content' => $request->content,
         ]);
 
+        $name = $request->file('image')->getClientOriginalName();
+ 
+        $path = $request->file('image')->store('public/images');
+ 
+        $img = new Image([
+            'path' => $path,
+            'name' => $name,
+            'description' => $request->img_description,
+        ]);
+
+        $tutoriel->images()->save($img);
         $tutoriel->save();
-        return redirect('/tutoriels')->with('success', 'Tutoriel has been added');
+        return redirect('/tutoriels')->with('success', 'Nouveau tutoriel uploadé !');
     }
 
     /**
