@@ -613,6 +613,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-5 {
   height: 1.25rem;
 }
+.h-full {
+  height: 100%;
+}
 .h-8 {
   height: 2rem;
 }
@@ -621,6 +624,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-64 {
   height: 16rem;
+}
+.h-screen {
+  height: 100vh;
 }
 .h-7 {
   height: 1.75rem;

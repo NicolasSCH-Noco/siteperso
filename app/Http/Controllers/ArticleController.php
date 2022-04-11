@@ -48,7 +48,7 @@ class ArticleController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'body' => 'required|string|max:400',
+            'body' => 'required|string',
             'tag_id' => 'required|integer',
             'img' => 'required|mimes:jpeg,jpg,png,gif,svg|max:2048',
             'img_description' => 'required|string|max:255',
@@ -102,7 +102,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('article.edit', compact('article'));
     }
 
     /**

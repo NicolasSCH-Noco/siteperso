@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('fichiers', function (Blueprint $table) {
             $table->id();
-            $table->string("nom")->default("fichier.fch");
-            $table->string("emp")->default("/storage/fichier/fichier.fch");
+            $table->string("name")->default("fichier.fch");
+            $table->string("path")->default("/storage/fichier/fichier.fch");
             $table->string("taille")->default("145Mo");
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();

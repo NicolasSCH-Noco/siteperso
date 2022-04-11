@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\FichierController;
 use App\Http\Controllers\TutorielController;
 
 /*
@@ -39,5 +40,6 @@ Route::get('/cv', function()
 Route::resource('articles', ArticleController::class);
 Route::resource('tutoriels', TutorielController::class);
 Route::resource('tags', TagController::class);
+Route::resource('fichiers', FichierController::class);
 
 
