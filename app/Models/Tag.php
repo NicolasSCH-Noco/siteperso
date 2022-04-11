@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Tag extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['label', 'color', 'icon'];
     public function articles()
     {
         return $this->hasMany(Article::class);

@@ -15,6 +15,12 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'edit', 'destroy']);
+    }
+
+
     public function index()
     {
         $articles = Article::all();
@@ -58,12 +64,12 @@ class ArticleController extends Controller
         // Image gesture
         $name = $request->file('img')->getClientOriginalName();
  
-        $path = $request->file('img')->store('public/images');
+        $path = $request->file('img')->storeAs('public/images', $name);
  
         $img = new Image([
-            'path' => $path,
             'name' => $name,
-            'description' => $request->img_description,
+            'path' => $path,
+            'description' => $request->img_description
         ]);
 
         

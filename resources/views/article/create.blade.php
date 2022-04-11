@@ -38,7 +38,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <label class="uppercase text-sm font-bold opacity-70" for="tag">Tag</label>
+            <label class="uppercase text-sm font-bold opacity-70" for="tag_id">Tag</label>
             <select
                 class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"
                 id="tag_id" name="tag_id">
@@ -46,6 +46,10 @@
                     <option value="{{ $tag->id }}">{{ $tag->label }}</option>
                 @endforeach
             </select>
+
+            @error('tag_id')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
                 <div class="flex justify-end">
                     <button type="submit"
                         class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

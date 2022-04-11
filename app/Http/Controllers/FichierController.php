@@ -8,6 +8,10 @@ use App\Http\Requests\UpdateFichierRequest;
 
 class FichierController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'edit', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      *

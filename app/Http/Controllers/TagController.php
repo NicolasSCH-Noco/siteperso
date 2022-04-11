@@ -8,6 +8,10 @@ use App\Http\Requests\UpdateTagRequest;
 
 class TagController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'edit', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,7 @@ class TagController extends Controller
     public function index()
     {
         $tags = Tag::all();
-        return view('tags.index', compact('tags'));
+        return view('tag.index', compact('tags'));
     }
 
     /**
@@ -26,7 +30,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('tags.create');
+        return view('tag.create');
     }
 
     /**
@@ -37,7 +41,14 @@ class TagController extends Controller
      */
     public function store(StoreTagRequest $request)
     {
-        $tag = Tag::create($request->validated());
+        $validated = $request->validated();
+        $tag = Tag::create(
+            [
+                'label' => $request->label,
+                'color' => $request->color,
+                'icon' => "wait.png",
+            ]
+        );
         $tag->save();
         return redirect()->route('tags.index')->with('success', 'Nouveau tag implémenté avec succés');
     }

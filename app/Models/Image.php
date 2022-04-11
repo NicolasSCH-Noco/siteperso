@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
-    protected $fillable = ['path', 'name', 'img', 'img_description'];
+    protected $fillable = ['path', 'name', 'img', 'description'];
    
     public function imageable()
     {
