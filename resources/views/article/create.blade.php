@@ -18,14 +18,14 @@
             @enderror
 
             <label class="uppercase text-sm font-bold opacity-70" for="body">Contenu</label>
-            <textarea class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"
+            <textarea class="w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"
                 id="body" name="body" rows="3"></textarea>
             @error('body')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <label class="uppercase text-sm font-bold opacity-70" for="img">Image</label>
-            <input type="file" class="form-control-file" id="img" name="img">
+            <label class="uppercase text-sm font-bold opacity-70" for="img">Image</label><br>
+            <input type="file" class="form-control-file" id="img" name="img"><br>
             @error('img')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -60,4 +60,21 @@
     </form>
 </div>
 
+@endsection
+
+
+@section('scripts')
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#body' ), {
+            toolbar: [ 'heading', 'indent', '|', 'bold', 'italic', 'underline', '|', 'uploadImage','link', 'undo', 'redo', '|', 'numberedList', 'bulletedList', 'blockQuote', 'insertTable', '|', 'code', 'codeBlock', 'imageUpload', 'mediaEmbed' ],
+        })
+            .then( editor => {
+                    console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            } );
+</script>
 @endsection

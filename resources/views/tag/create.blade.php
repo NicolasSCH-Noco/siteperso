@@ -17,13 +17,18 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <label class="uppercase text-sm font-bold opacity-70" for="color">Couleur</label>
+            <label class="uppercase text-sm font-bold opacity-70" for="color">Couleur</label><br>
             <input type="color" name="color" id="color">
             @error('color')
                 <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            @enderror 
+            <br>
 
-           
+            <label class="uppercase text-sm font-bold opacity-70" for="icon">Image du tag</label><br>
+            <input type="file" class="form-control-file" name="icon" id="icon">
+            @error('icon')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
                 <div class="flex justify-end">
                     <button type="submit"

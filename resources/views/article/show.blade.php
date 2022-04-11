@@ -9,7 +9,7 @@
     @foreach ($article->tags as $tag)
     {{-- <span><small>{{ $tag->label }}</small></span> --}}
     <div class="flex flex-shrink-0 text-sm items-center px-2">
-        <div class="bg-gray-400 text-gray-600 px-2 py-1 rounded-l-md">Logo</div>
+        <div class="bg-gray-400 text-gray-600 px-2 py-1 rounded-l-md"><img class="max-h-5"src="/storage/{{$tag->icon }}" alt="{{ $tag->label }}"></div>
         <div style="background-color:{{ $tag->color }}" class="text-green-100 px-2 py-1 rounded-r-md">{{ $tag->label }}</div>
     </div>
     @endforeach
@@ -28,7 +28,7 @@
         </div>
         
         <div class="w-full text-gray-600 text-normal mx-5">
-            <p class="border-b py-3">{{ $image->description }}</p>
+            <p class="border-b py-3">&copy {{ $image->description }}</p>
         </div>
     @empty
         Aucune image
@@ -41,7 +41,7 @@
     </div>
     
     <div class="px-5 w-full mx-auto pt-5 pb-5">
-        <p class="text-gray-800 text-xl">{{ $article->body }}</p>
+        <p class="text-gray-800 text-xl">{!! $article->body !!}</p>
     </div>
 </div>
 @endsection

@@ -16,6 +16,8 @@
 						class="text-gray-600 hover:underline">Laravel</a></li>
 				<li><a href="https://tailwindcss.com/" target="_blank" rel="nofollow"
 						class="text-gray-600 hover:underline">Tailwind CSS</a></li>
+						<li><a href="{{ route('tags.index')}}" target="_blank" rel="nofollow"
+							class="text-gray-600 hover:underline">Tags Articles / Tutoriels</a></li>
 			</ul>
 		</div>
 		<div>

@@ -11,6 +11,7 @@ class Tag extends Model
 {
     use HasFactory;
     protected $fillable = ['label', 'color', 'icon'];
+
     public function articles()
     {
         return $this->hasMany(Article::class);
@@ -19,5 +20,15 @@ class Tag extends Model
     public function tutoriels()
     {
         return $this->hasMany(Tutoriel::class);
+    }
+
+    public function getCountArticles()
+    {
+        return $this->articles()->count();
+    }
+
+    public function getCountTutoriels()
+    {
+        return $this->tutoriels()->count();
     }
 }

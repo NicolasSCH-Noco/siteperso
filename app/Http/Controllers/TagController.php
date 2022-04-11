@@ -42,13 +42,18 @@ class TagController extends Controller
     public function store(StoreTagRequest $request)
     {
         $validated = $request->validated();
+        $name = $request->file('icon')->getClientOriginalName();
+ 
+        $path = $request->file('icon')->storeAs('public/images', $name);
+        $path= str_replace('public/', '', $path);
         $tag = Tag::create(
             [
                 'label' => $request->label,
                 'color' => $request->color,
-                'icon' => "wait.png",
+                'icon' => $path,
             ]
         );
+
         $tag->save();
         return redirect()->route('tags.index')->with('success', 'Nouveau tag implémenté avec succés');
     }
