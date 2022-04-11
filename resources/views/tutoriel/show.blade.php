@@ -10,7 +10,7 @@
     {{-- <span><small>{{ $tag->label }}</small></span> --}}
     <div class="flex flex-shrink-0 text-sm items-center px-2">
         <div class="bg-gray-400 text-gray-600 px-2 py-1 rounded-l-md">Logo</div>
-        <div class="bg-gray-500 text-green-100 px-2 py-1 rounded-r-md">{{ $tag->label }}</div>
+        <div style="background-color:{{ $tag->color }}" class="text-green-100 px-2 py-1 rounded-r-md">{{ $tag->label }}</div>
     </div>
     @endforeach
     

@@ -65,6 +65,7 @@ class ArticleController extends Controller
         $name = $request->file('img')->getClientOriginalName();
  
         $path = $request->file('img')->storeAs('public/images', $name);
+        $path= str_replace('public/', '', $path);
  
         $img = new Image([
             'name' => $name,

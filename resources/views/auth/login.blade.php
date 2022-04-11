@@ -47,6 +47,15 @@
                     <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
                         <a href="#">Mot de passe oublié ?</a>
                     </div>
+
+                    @error('email')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>                       
+                    @enderror
+
+                    @error('password')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
+
                     <div class="px-4 pb-2 pt-4">
                         <button class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">Connexion</button>
                     </div>

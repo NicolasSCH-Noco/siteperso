@@ -10,7 +10,7 @@
     {{-- <span><small>{{ $tag->label }}</small></span> --}}
     <div class="flex flex-shrink-0 text-sm items-center px-2">
         <div class="bg-gray-400 text-gray-600 px-2 py-1 rounded-l-md">Logo</div>
-        <div class="bg-gray-500 text-green-100 px-2 py-1 rounded-r-md">{{ $tag->label }}</div>
+        <div style="background-color:{{ $tag->color }}" class="text-green-100 px-2 py-1 rounded-r-md">{{ $tag->label }}</div>
     </div>
     @endforeach
     
@@ -22,13 +22,17 @@
        {{ $article->created_at->diffForHumans() }}
     </div>
     
-    {{-- <div class="mx-5">
-    <img src="https://static.politico.com/dims4/default/fcd6d6a/2147483647/resize/1920x/quality/90/?url=https%3A%2F%2Fstatic.politico.com%2F22%2F87%2F2259ffd444678054896b9fa32b4d%2Fgettyimages-1221513169.jpg">
-    </div>
-    
-    <div class="w-full text-gray-600 text-normal mx-5">
-        <p class="border-b py-3">Georgia Gov. Brian Kemp speaks to the media during a press conference. | Kevin C. Cox/Getty Images</p>
-    </div> --}}
+    @forelse($article->images as $image)
+    <div class="mx-5">
+        <img src="/storage/{{$image->path }}">
+        </div>
+        
+        <div class="w-full text-gray-600 text-normal mx-5">
+            <p class="border-b py-3">{{ $image->description }}</p>
+        </div>
+    @empty
+        Aucune image
+    @endforelse
     
     <div class="w-full text-gray-600 font-thin italic px-5 pt-3 border-b">
         Par <strong class="text-gray-700">{{ $article->user->name }}</strong><br>
